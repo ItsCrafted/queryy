@@ -6,11 +6,7 @@
     <title id="pageTitle">Queryy</title>
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
@@ -23,10 +19,7 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(circle at 20% 30%, rgba(165, 165, 165, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(145, 145, 145, 0.08) 0%, transparent 50%),
@@ -34,123 +27,8 @@
             pointer-events: none;
             z-index: 0;
         }
-        .decorative-lines {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 0;
-        }
-        .line {
-            position: absolute;
-            background: linear-gradient(90deg, transparent, rgba(165, 165, 165, 0.3), transparent);
-            height: 1px;
-        }
-        .line:nth-child(1) {
-            top: 20%;
-            left: -100%;
-            width: 40%;
-            animation: lineMove1 8s ease-in-out infinite;
-        }
-        .line:nth-child(2) {
-            top: 60%;
-            right: -100%;
-            width: 50%;
-            animation: lineMove2 10s ease-in-out infinite;
-        }
-        .line:nth-child(3) {
-            top: 80%;
-            left: -100%;
-            width: 35%;
-            animation: lineMove1 12s ease-in-out infinite;
-        }
-        @keyframes lineMove1 {
-            0%, 100% {
-                left: -100%;
-            }
-            50% {
-                left: 100%;
-            }
-        }
-        @keyframes lineMove2 {
-            0%, 100% {
-                right: -100%;
-            }
-            50% {
-                right: 100%;
-            }
-        }
-        .particles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .particle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: rgba(186, 186, 186, 0.9);
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(186, 186, 186, 1);
-        }
-        .particle:nth-child(1) {
-            top: 15%;
-            left: 10%;
-            animation: float 6s ease-in-out infinite;
-        }
-        .particle:nth-child(2) {
-            top: 75%;
-            left: 85%;
-            animation: float 8s ease-in-out infinite 1s;
-        }
-        .particle:nth-child(3) {
-            top: 45%;
-            left: 15%;
-            animation: float 7s ease-in-out infinite 2s;
-        }
-        .particle:nth-child(4) {
-            top: 25%;
-            left: 80%;
-            animation: float 9s ease-in-out infinite 1.5s;
-        }
-        .particle:nth-child(5) {
-            top: 85%;
-            left: 25%;
-            animation: float 10s ease-in-out infinite 0.5s;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0;
-            }
-            10%, 90% {
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-30px) translateX(20px);
-            }
-        }
-        .container {
-            max-width: 1400px;
-            margin: 0 0 0 180px;
-            position: relative;
-            z-index: 1;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(165, 165, 165, 0.1);
-        }
+        .container { max-width: 1400px; margin: 0 0 0 180px; position: relative; z-index: 1; }
+        .header { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(165, 165, 165, 0.1); }
         .logo {
             font-size: 28px;
             font-weight: bold;
@@ -160,17 +38,9 @@
             background-clip: text;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-shadow: 0 0 30px rgba(165, 165, 165, 0.3);
         }
-        .logo:hover {
-            filter: brightness(1.2);
-            transform: scale(1.05);
-        }
-        .search-box {
-            flex: 1;
-            max-width: 800px;
-            position: relative;
-        }
+        .logo:hover { filter: brightness(1.2); transform: scale(1.05); }
+        .search-box { flex: 1; max-width: 800px; }
         .search-box input {
             width: 100%;
             padding: 12px 18px;
@@ -183,51 +53,14 @@
             color: #e0e0e0;
             transition: all 0.3s ease;
         }
-        .search-box input::placeholder {
-            color: #707070;
-        }
-        .search-box input:focus {
-            border-color: #a5a5a5;
-            background: rgba(50, 50, 50, 0.6);
-            box-shadow: 0 0 20px rgba(165, 165, 165, 0.3);
-        }
-        .content-wrapper {
-            display: flex;
-            gap: 80px;
-            align-items: flex-start;
-        }
-        .main-content {
-            flex: 1;
-            max-width: 800px;
-        }
-        .sidebar {
-            width: 380px;
-            position: fixed;
-            top: 120px;
-            right: 80px;
-        }
-        .ai-answer {
-            margin-bottom: 35px;
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .ai-answer h3 {
-            color: #bababa;
-            margin-bottom: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
+        .search-box input::placeholder { color: #707070; }
+        .search-box input:focus { border-color: #a5a5a5; background: rgba(50, 50, 50, 0.6); box-shadow: 0 0 20px rgba(165, 165, 165, 0.3); }
+        .content-wrapper { display: flex; gap: 80px; align-items: flex-start; }
+        .main-content { flex: 1; max-width: 800px; }
+        .sidebar { width: 380px; position: fixed; top: 120px; right: 80px; }
+        .ai-answer { margin-bottom: 35px; display: none; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .ai-answer h3 { color: #bababa; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
         .direct-answer {
             background: rgba(165, 165, 165, 0.08);
             padding: 16px;
@@ -238,66 +71,15 @@
             color: #ffffff;
             font-size: 15px;
         }
-        .explanation {
-            color: #b0b0b0;
-            line-height: 1.7;
-            font-size: 14px;
-        }
-        .loading {
-            text-align: left;
-            padding: 20px 0;
-            color: #a5a5a5;
-            font-size: 15px;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.6;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-        .result-item {
-            margin-bottom: 32px;
-            padding-bottom: 8px;
-            transition: all 0.2s ease;
-        }
-        .result-title {
-            color: #a5a5a5;
-            font-size: 20px;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            line-height: 1.3;
-        }
-        .result-title:hover {
-            color: #bababa;
-            text-decoration: underline;
-        }
-        .result-url {
-            color: #919191;
-            font-size: 13px;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-        .result-desc {
-            color: #c0c0c0;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-        .result-snippet {
-            color: #b0b0b0;
-            font-size: 13px;
-            margin-top: 8px;
-            padding: 10px;
-            background: rgba(165, 165, 165, 0.05);
-            border-radius: 6px;
-            border-left: 2px solid rgba(165, 165, 165, 0.2);
-            font-style: italic;
-        }
+        .explanation { color: #b0b0b0; line-height: 1.7; font-size: 14px; }
+        .loading { text-align: left; padding: 20px 0; color: #a5a5a5; font-size: 15px; animation: pulse 1.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+        .result-item { margin-bottom: 32px; padding-bottom: 8px; transition: all 0.2s ease; }
+        .result-title { color: #a5a5a5; font-size: 20px; text-decoration: none; display: block; margin-bottom: 6px; font-weight: 500; transition: color 0.2s ease; line-height: 1.3; }
+        .result-title:hover { color: #bababa; text-decoration: underline; }
+        .result-url { color: #919191; font-size: 13px; margin-bottom: 8px; font-weight: 400; }
+        .result-desc { color: #c0c0c0; line-height: 1.6; font-size: 14px; }
+        .result-snippet { color: #b0b0b0; font-size: 13px; margin-top: 8px; padding: 10px; background: rgba(165, 165, 165, 0.05); border-radius: 6px; border-left: 2px solid rgba(165, 165, 165, 0.2); font-style: italic; }
         .load-more {
             padding: 12px 36px;
             background: linear-gradient(135deg, #919191 0%, #a5a5a5 50%, #919191 100%);
@@ -310,109 +92,26 @@
             font-size: 15px;
             font-weight: 600;
             transition: all 0.3s ease;
-            letter-spacing: 0.3px;
         }
-        .load-more:hover {
-            background-position: 100% 0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(165, 165, 165, 0.3);
-        }
-        .error {
-            color: #ff6b6b;
-            padding: 15px;
-            background: rgba(255, 107, 107, 0.1);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            border-radius: 8px;
-            margin: 12px 0;
-        }
-        .recommended-searches {
-            background: rgba(42, 42, 42, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(165, 165, 165, 0.15);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .recommended-searches h3 {
-            color: #bababa;
-            font-size: 16px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .search-suggestion {
-            display: block;
-            color: #a5a5a5;
-            text-decoration: none;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            background: rgba(165, 165, 165, 0.05);
-            transition: all 0.2s ease;
-            font-size: 14px;
-        }
-        .search-suggestion:hover {
-            background: rgba(165, 165, 165, 0.12);
-            color: #bababa;
-            transform: translateX(5px);
-        }
-        .info-box {
-            background: rgba(42, 42, 42, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(165, 165, 165, 0.15);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .info-box h3 {
-            color: #bababa;
-            font-size: 16px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        .info-box-content {
-            color: #b0b0b0;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .info-stat {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(165, 165, 165, 0.1);
-        }
-        .info-stat:last-child {
-            border-bottom: none;
-        }
-        .info-label {
-            color: #919191;
-            font-size: 13px;
-        }
-        .info-value {
-            color: #bababa;
-            font-weight: 500;
-            font-size: 13px;
-        }
+        .load-more:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(165, 165, 165, 0.3); }
+        .error { color: #ff6b6b; padding: 15px; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.3); border-radius: 8px; margin: 12px 0; }
+        .recommended-searches { background: rgba(42, 42, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(165, 165, 165, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .recommended-searches h3 { color: #bababa; font-size: 16px; margin-bottom: 15px; font-weight: 600; }
+        .search-suggestion { display: block; color: #a5a5a5; text-decoration: none; padding: 10px 12px; margin-bottom: 8px; border-radius: 8px; background: rgba(165, 165, 165, 0.05); transition: all 0.2s ease; font-size: 14px; }
+        .search-suggestion:hover { background: rgba(165, 165, 165, 0.12); color: #bababa; transform: translateX(5px); }
+        .info-box { background: rgba(42, 42, 42, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(165, 165, 165, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .info-box h3 { color: #bababa; font-size: 16px; margin-bottom: 12px; font-weight: 600; }
+        .info-box-content { color: #b0b0b0; font-size: 14px; line-height: 1.6; }
+        .info-stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(165, 165, 165, 0.1); }
+        .info-stat:last-child { border-bottom: none; }
+        .info-label { color: #919191; font-size: 13px; }
+        .info-value { color: #bababa; font-weight: 500; font-size: 13px; }
     </style>
 </head>
 <body>
-    <div class="decorative-lines">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-    
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
     <div class="container">
         <div class="header">
             <div class="logo" onclick="window.location.href='index.html'">Queryy</div>
-            
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="Search...">
             </div>
@@ -425,12 +124,9 @@
                     <div class="direct-answer" id="directAnswer"></div>
                     <div class="explanation" id="explanation"></div>
                 </div>
-
                 <div id="loading" class="loading" style="display: none;">Loading...</div>
                 <div id="error" class="error" style="display: none;"></div>
-                
                 <div id="results" class="results"></div>
-                
                 <button id="loadMoreBtn" class="load-more" style="display: none;" onclick="loadMore()">Load More</button>
             </div>
 
@@ -439,7 +135,6 @@
                     <h3>Related Searches</h3>
                     <div id="searchSuggestions"></div>
                 </div>
-
                 <div id="infoBox" class="info-box" style="display: none;">
                     <h3 id="infoBoxTitle">Quick Facts</h3>
                     <div id="infoBoxContent" class="info-box-content"></div>
@@ -449,7 +144,9 @@
     </div>
 
     <script>
-        const MODEL = 'llama-3.3-70b-versatile';
+        const AI_QUERY_URL = 'https://queryy-ai.craftedgamz.workers.dev';
+        const GOOGLE_SEARCH_URL = 'https://queryy-search.craftedgamz.workers.dev';
+        
         let currentApiKeyIndex = 0;
         let currentStart = 1;
         let currentQuery = '';
@@ -473,7 +170,6 @@
         function performSearch() {
             const query = document.getElementById('searchInput').value.trim();
             if (!query) return;
-            
             const encodedQuery = encodeURIComponent(query);
             window.location.href = `search.html?q=${encodedQuery}`;
         }
@@ -481,7 +177,6 @@
         async function performSearchFromURL() {
             const params = new URLSearchParams(window.location.search);
             const query = params.get('q');
-            
             if (!query) return;
 
             currentQuery = decodeURIComponent(query);
@@ -511,15 +206,13 @@
 
         async function checkContentSafety(query) {
             try {
-                const response = await fetch('/.netlify/functions/ai-query', {
+                const response = await fetch(AI_QUERY_URL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'craftedgamz-query'
                     },
-                    body: JSON.stringify({
-                        type: 'safety',
-                        query: query
-                    })
+                    body: JSON.stringify({ type: 'safety', query: query })
                 });
 
                 if (!response.ok) {
@@ -537,15 +230,13 @@
 
         async function getAIAnswer(query) {
             try {
-                const response = await fetch('/.netlify/functions/ai-query', {
+                const response = await fetch(AI_QUERY_URL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'craftedgamz-query'
                     },
-                    body: JSON.stringify({
-                        type: 'answer',
-                        query: query
-                    })
+                    body: JSON.stringify({ type: 'answer', query: query })
                 });
 
                 if (!response.ok) {
@@ -554,7 +245,6 @@
                 }
 
                 const data = await response.json();
-                
                 if (data.direct_answer && data.explanation) {
                     document.getElementById('directAnswer').textContent = data.direct_answer;
                     document.getElementById('explanation').textContent = data.explanation;
@@ -567,21 +257,18 @@
 
         async function getRelatedSearches(query) {
             try {
-                const response = await fetch('/.netlify/functions/ai-query', {
+                const response = await fetch(AI_QUERY_URL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'craftedgamz-query'
                     },
-                    body: JSON.stringify({
-                        type: 'related',
-                        query: query
-                    })
+                    body: JSON.stringify({ type: 'related', query: query })
                 });
 
                 if (!response.ok) return;
 
                 const data = await response.json();
-                
                 if (data.suggestions && Array.isArray(data.suggestions)) {
                     const container = document.getElementById('searchSuggestions');
                     container.innerHTML = '';
@@ -603,21 +290,18 @@
 
         async function getQuickFacts(query) {
             try {
-                const response = await fetch('/.netlify/functions/ai-query', {
+                const response = await fetch(AI_QUERY_URL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'craftedgamz-query'
                     },
-                    body: JSON.stringify({
-                        type: 'facts',
-                        query: query
-                    })
+                    body: JSON.stringify({ type: 'facts', query: query })
                 });
 
                 if (!response.ok) return;
 
                 const data = await response.json();
-                
                 if (data.applicable === false) return;
                 
                 if (data.title && data.facts) {
@@ -652,10 +336,11 @@
                 const batchSize = Math.min(10, resultsToFetch);
                 
                 try {
-                    const response = await fetch('/.netlify/functions/google-search', {
+                    const response = await fetch(GOOGLE_SEARCH_URL, {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'X-Requested-With': 'craftedgamz-search'
                         },
                         body: JSON.stringify({
                             query: query,
@@ -682,9 +367,7 @@
                         startIndex += data.items.length;
                     }
 
-                    if (!data.items || data.items.length < batchSize) {
-                        break;
-                    }
+                    if (!data.items || data.items.length < batchSize) break;
                 } catch (error) {
                     document.getElementById('error').textContent = 'Error loading results: ' + error.message;
                     document.getElementById('error').style.display = 'block';
