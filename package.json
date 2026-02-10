@@ -9,7 +9,7 @@
     "lint": "eslint ."
   },
   "author": "crafted",
-  "license": "MIT",
+  "license": "ARR",
   "dependencies": {},
   "devDependencies": {}
 }
