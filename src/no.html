@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Queryy Error</title>
   <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     body{
       font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-      display:flex;flex-direction:column;justify-content:center;align-items:center;
-      min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;
+      min-height:100vh;padding:40px 0 60px;
       background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 50%,#1a1a1a 100%);
-      position:relative;overflow:hidden
+      position:relative;overflow-x:hidden;
     }
     body::before{
       content:'';position:absolute;top:0;left:0;right:0;bottom:0;
@@ -22,9 +23,14 @@
         radial-gradient(circle at 50% 50%,rgba(186,186,186,.05) 0%,transparent 70%);
       pointer-events:none
     }
-    .container{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;animation:fadeIn .8s ease-out}
+    .container{
+      position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;
+      animation:fadeIn .8s ease-out;width:700px;max-width:90vw;margin:auto;
+    }
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    .logo{margin-bottom:40px;position:relative;animation:logoFloat 3s ease-in-out infinite;text-align:center}
+
+    /* Logo */
+    .logo{margin-bottom:32px;position:relative;animation:logoFloat 3s ease-in-out infinite;text-align:center}
     @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     .logo-text{font-size:72px;font-weight:bold;background:linear-gradient(135deg,#bababa 0%,#a5a5a5 50%,#919191 100%);
       -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
@@ -34,8 +40,9 @@
       width:320px;height:320px;background:radial-gradient(circle,rgba(165,165,165,.15) 0%,transparent 70%);
       border-radius:50%;z-index:-1;animation:pulse 2s ease-in-out infinite}
     @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.1);opacity:.8}}
-    .search-wrapper{position:relative;width:700px;max-width:90vw;margin-top:40px}
-    .search-box{width:100%;position:relative}
+
+    /* Search */
+    .search-box{width:100%;position:relative;margin-bottom:16px;}
     .search-box::before{
       content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;
       background:linear-gradient(45deg,#919191,#a5a5a5,#bababa,#a5a5a5,#919191);
@@ -51,16 +58,22 @@
       border-color:#a5a5a5;background:rgba(50,50,50,.9);
       box-shadow:inset 0 2px 10px rgba(0,0,0,.3),0 0 30px rgba(165,165,165,.6),0 0 60px rgba(165,165,165,.4),0 0 90px rgba(165,165,165,.2),0 0 0 4px rgba(165,165,165,.1);
       transform:translateY(-2px)}
+
     .btn{
-      margin-top:20px;padding:16px 36px;background:linear-gradient(135deg,#919191 0%,#a5a5a5 50%,#919191 100%);
+      margin-bottom:28px;padding:16px 36px;
+      background:linear-gradient(135deg,#919191 0%,#a5a5a5 50%,#919191 100%);
       background-size:200% 200%;color:#fff;border:2px solid #6a6a6a;border-radius:28px;
       cursor:pointer;font-size:17px;font-weight:600;transition:all .3s ease;position:relative;overflow:hidden;
-      box-shadow:0 4px 20px rgba(165,165,165,.3),inset 0 1px 0 rgba(255,255,255,.2);letter-spacing:.5px;text-decoration:none;display:inline-block}
+      box-shadow:0 4px 20px rgba(165,165,165,.3),inset 0 1px 0 rgba(255,255,255,.2);
+      letter-spacing:.5px;text-decoration:none;display:inline-block}
     .btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
       background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .5s ease}
     .btn:hover::before{left:100%}
-    .btn:hover{background-position:100% 0;transform:translateY(-3px);box-shadow:0 8px 30px rgba(165,165,165,.5),inset 0 1px 0 rgba(255,255,255,.3);border-color:#bababa}
-    .btn:active{transform:translateY(-1px);box-shadow:0 4px 15px rgba(165,165,165,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+    .btn:hover{background-position:100% 0;transform:translateY(-3px);
+      box-shadow:0 8px 30px rgba(165,165,165,.5),inset 0 1px 0 rgba(255,255,255,.3);border-color:#bababa}
+    .btn:active{transform:translateY(-1px);}
+
+
     .decorative-lines{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none;overflow:hidden}
     .line{position:absolute;background:linear-gradient(90deg,transparent,rgba(165,165,165,.3),transparent);height:1px}
     .line:nth-child(1){top:20%;left:-100%;width:40%;animation:lineMove1 8s ease-in-out infinite}
@@ -70,12 +83,49 @@
     @keyframes lineMove2{0%,100%{right:-100%}50%{right:100%}}
     .particles{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none}
     .particle{position:absolute;width:3px;height:3px;background:rgba(186,186,186,.6);border-radius:50%;box-shadow:0 0 10px rgba(186,186,186,.8)}
-    .particle:nth-child(1){top:15%;left:10%;animation:float 6s ease-in-out infinite}
-    .particle:nth-child(2){top:75%;left:85%;animation:float 8s ease-in-out infinite 1s}
-    .particle:nth-child(3){top:45%;left:15%;animation:float 7s ease-in-out infinite 2s}
-    .particle:nth-child(4){top:25%;left:80%;animation:float 9s ease-in-out infinite 1.5s}
-    .particle:nth-child(5){top:85%;left:25%;animation:float 10s ease-in-out infinite .5s}
-    @keyframes float{0%,100%{transform:translateY(0) translateX(0);opacity:0}10%,90%{opacity:1}50%{transform:translateY(-30px) translateX(20px)}}
+    .particle:nth-child(1){top:15%;left:10%;animation:pfloat 6s ease-in-out infinite}
+    .particle:nth-child(2){top:75%;left:85%;animation:pfloat 8s ease-in-out infinite 1s}
+    .particle:nth-child(3){top:45%;left:15%;animation:pfloat 7s ease-in-out infinite 2s}
+    .particle:nth-child(4){top:25%;left:80%;animation:pfloat 9s ease-in-out infinite 1.5s}
+    .particle:nth-child(5){top:85%;left:25%;animation:pfloat 10s ease-in-out infinite .5s}
+    @keyframes pfloat{0%,100%{transform:translateY(0) translateX(0);opacity:0}10%,90%{opacity:1}50%{transform:translateY(-30px) translateX(20px)}}
+
+    .btw-bubble{width:100%;animation:bubbleIn .6s ease-out .3s both;}
+    @keyframes bubbleIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .btw-inner{
+      background:rgba(32, 32, 32, 0.96);
+      border:1.5px solid #2e2e2e;
+      border-radius:20px;
+      padding:20px 22px 26px;
+      box-shadow:0 8px 32px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .btw-header{
+      font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+      color:#ffffff;margin-bottom:16px;display:flex;align-items:center;gap:7px;
+    }
+    .btw-header::before{
+      content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;
+      background:#a5a5a5;box-shadow:0 0 8px #a5a5a5;animation:blink 2s ease-in-out infinite;
+    }
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .btw-section-title{
+      font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+      color:#868383;margin-bottom:12px;
+    }
+    .btw-divider{border:none;border-top:1px solid #252525;margin:16px 0;}
+    .btw-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;}
+    .btw-row{display:flex;align-items:flex-start;gap:9px;}
+    .btw-icon{font-size:13px;margin-top:3px;flex-shrink:0;color:#fff;opacity:.75;width:13px;text-align:center;}
+    .btw-info{min-width:0;}
+    .btw-sub{display:block;font-size:10px;color:#929090;line-height:1.4;}
+    .btw-val{display:block;font-size:12.5px;color:#d8d8d8;font-weight:600;line-height:1.5;word-break:break-all;}
+    .btw-loading{
+      display:inline-block;width:68px;height:9px;
+      background:linear-gradient(90deg,#252525 25%,#353535 50%,#252525 75%);
+      background-size:200% 100%;border-radius:4px;
+      animation:shimmer 1.2s ease-in-out infinite;vertical-align:middle;
+    }
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
   </style>
 </head>
 <body>
@@ -83,34 +133,272 @@
     <div class="line"></div><div class="line"></div><div class="line"></div>
   </div>
   <div class="particles">
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div>
   </div>
 
   <div class="container">
+
     <div class="logo">
-      <div class="logo-text">NO</div>
-      <div class="logo-slogan">Sorry, but Query can't search for these things.</div>
+      <div class="logo-text">Nuh Uh</div>
+      <div class="logo-slogan">Sorry, but we WONT be serving you these results.</div>
     </div>
 
-    <div class="search-wrapper">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Try a different search...">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Try a different search...">
+    </div>
+
+    <div class="btw-bubble">
+      <div class="btw-inner">
+        <div class="btw-header">By the way!</div>
+
+        <div class="btw-section-title">Network</div>
+        <div class="btw-grid">
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-globe"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">IPv4</span>
+              <span class="btw-val" id="btw-ipv4"><span class="btw-loading"></span></span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-network-wired"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">IPv6</span>
+              <span class="btw-val" id="btw-ipv6"><span class="btw-loading"></span></span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Location</span>
+              <span class="btw-val" id="btw-loc"><span class="btw-loading"></span></span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-building"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">ISP / Org</span>
+              <span class="btw-val" id="btw-isp"><span class="btw-loading"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="btw-divider">
+        <div class="btw-section-title">Browser</div>
+        <div class="btw-grid">
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-window-maximize"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Browser</span>
+              <span class="btw-val" id="btw-browser">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-code"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Engine</span>
+              <span class="btw-val" id="btw-engine">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-language"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Language</span>
+              <span class="btw-val" id="btw-lang">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-clock"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Timezone</span>
+              <span class="btw-val" id="btw-tz">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-expand"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Viewport</span>
+              <span class="btw-val" id="btw-viewport">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-cookie-bite"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Cookies</span>
+              <span class="btw-val" id="btw-cookies">—</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="btw-divider">
+
+        <div class="btw-section-title">System</div>
+        <div class="btw-grid">
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-desktop"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">OS</span>
+              <span class="btw-val" id="btw-os">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-microchip"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">CPU Threads</span>
+              <span class="btw-val" id="btw-cpu">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-memory"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">RAM (approx)</span>
+              <span class="btw-val" id="btw-ram">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-display"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Screen</span>
+              <span class="btw-val" id="btw-screen">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-palette"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Color Depth</span>
+              <span class="btw-val" id="btw-color">—</span>
+            </div>
+          </div>
+          <div class="btw-row">
+            <span class="btw-icon"><i class="fa-solid fa-wifi"></i></span>
+            <div class="btw-info">
+              <span class="btw-sub">Connection</span>
+              <span class="btw-val" id="btw-conn">—</span>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 10px;"></div>
+        <div class="btw-header">Pull some shit like that again and it gets logged</div>
       </div>
     </div>
 
-    <a href="index.html" class="btn">Back to Home</a>
   </div>
 
   <script>
-    document.getElementById('searchInput').addEventListener('keypress', e=>{
-      if(e.key==='Enter') performSearch()
-    })
-    function performSearch(){
-      const query=document.getElementById('searchInput').value.trim()
-      if(!query) return
-      const encoded=encodeURIComponent(query)
-      window.location.href=`search.html?q=${encoded}`
-    }
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        var q = document.getElementById('searchInput').value.trim();
+        if (q) window.location.href = 'search.html?q=' + encodeURIComponent(q);
+      }
+    });
+
+    (function populateClient() {
+      var ua = navigator.userAgent;
+
+      var browser = 'Unknown';
+      var edgeM = ua.match(/Edg\/([\d]+)/);
+      var oprM  = ua.match(/OPR\/([\d]+)/);
+      var chrM  = ua.match(/Chrome\/([\d]+)/);
+      var ffM   = ua.match(/Firefox\/([\d]+)/);
+      var safM  = ua.match(/Version\/([\d]+)/);
+      if (edgeM)      browser = 'Edge ' + edgeM[1];
+      else if (oprM)  browser = 'Opera ' + oprM[1];
+      else if (chrM)  browser = 'Chrome ' + chrM[1];
+      else if (ffM)   browser = 'Firefox ' + ffM[1];
+      else if (safM && /Safari/.test(ua)) browser = 'Safari ' + safM[1];
+      document.getElementById('btw-browser').textContent = browser;
+
+      var engine = 'Unknown';
+      if (ffM) engine = 'Gecko';
+      else if (/AppleWebKit/.test(ua)) engine = 'Blink / WebKit';
+      document.getElementById('btw-engine').textContent = engine;
+
+      document.getElementById('btw-lang').textContent = navigator.language || 'Unknown';
+
+      try {
+        document.getElementById('btw-tz').textContent =
+          Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown';
+      } catch(e) {
+        document.getElementById('btw-tz').textContent = 'Unknown';
+      }
+
+      document.getElementById('btw-viewport').textContent =
+        window.innerWidth + ' × ' + window.innerHeight;
+
+      document.getElementById('btw-cookies').textContent =
+        navigator.cookieEnabled ? 'Enabled' : 'Disabled';
+
+      var os = 'Unknown';
+      if (/Windows NT 10\.0/.test(ua))       os = 'Windows 10/11';
+      else if (/Windows NT/.test(ua))        os = 'Windows';
+      else if (/iPhone/.test(ua))            os = 'iOS (iPhone)';
+      else if (/iPad/.test(ua))              os = 'iOS (iPad)';
+      else if (/Android/.test(ua)) {
+        var am = ua.match(/Android ([\d.]+)/);
+        os = 'Android' + (am ? ' ' + am[1] : '');
+      } else if (/Mac OS X/.test(ua)) {
+        var mm = ua.match(/Mac OS X ([\d_]+)/);
+        os = 'macOS' + (mm ? ' ' + mm[1].replace(/_/g, '.') : '');
+      } else if (/Linux/.test(ua)) os = 'Linux';
+      document.getElementById('btw-os').textContent = os;
+
+
+      var cores = navigator.hardwareConcurrency;
+      document.getElementById('btw-cpu').textContent =
+        cores ? cores + ' logical cores' : 'Unknown';
+
+      var ram = navigator.deviceMemory;
+      document.getElementById('btw-ram').textContent =
+        ram ? ram + ' GB' : 'Unknown';
+
+      document.getElementById('btw-screen').textContent =
+        screen.width + ' × ' + screen.height;
+
+      document.getElementById('btw-color').textContent =
+        (screen.colorDepth || screen.pixelDepth || '?') + '-bit';
+
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (conn) {
+        var parts = [];
+        if (conn.effectiveType) parts.push(conn.effectiveType.toUpperCase());
+        if (conn.downlink)      parts.push(conn.downlink + ' Mbps');
+        document.getElementById('btw-conn').textContent = parts.join(' · ') || 'Connected';
+      } else {
+        document.getElementById('btw-conn').textContent = 'Unknown';
+      }
+    })();
+
+    (async function fetchNetwork() {
+
+      try {
+        var r = await fetch('https://ipv4.icanhazip.com');
+        if (!r.ok) throw new Error();
+        document.getElementById('btw-ipv4').textContent = (await r.text()).trim() || 'Unavailable';
+      } catch(e) {
+        document.getElementById('btw-ipv4').textContent = 'Unavailable';
+      }
+
+      try {
+        var r = await fetch('https://ipv6.icanhazip.com');
+        if (!r.ok) throw new Error();
+        document.getElementById('btw-ipv6').textContent = (await r.text()).trim() || 'Not available';
+      } catch(e) {
+        document.getElementById('btw-ipv6').textContent = 'Not available';
+      }
+
+      try {
+        var r = await fetch('https://ipapi.co/json/');
+        if (!r.ok) throw new Error();
+        var d = await r.json();
+        var locParts = [d.city, d.region, d.country_name].filter(Boolean);
+        document.getElementById('btw-loc').textContent = locParts.join(', ') || 'Unknown';
+        document.getElementById('btw-isp').textContent = d.org || 'Unknown';
+      } catch(e) {
+        document.getElementById('btw-loc').textContent = 'Unavailable';
+        document.getElementById('btw-isp').textContent = 'Unavailable';
+      }
+    })();
   </script>
 </body>
 </html>
